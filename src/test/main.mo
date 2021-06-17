@@ -16,14 +16,14 @@ actor Counter {
 
   var count = 0;
 
-  public shared(msg) func inc(user: User) : async () { 
+  public func inc(user: User) : async () { 
     count += 1;
     await notify(user, count);
   };
 
-  public shared(msg) func read() : async Nat { count };
+  public func read() : async Nat { count };
 
-  public shared(msg) func bump(user: User) : async Nat {
+  public func bump(user: User) : async Nat {
     count += 1;
     
     await notify(user, count);
@@ -31,7 +31,7 @@ actor Counter {
     return count;
   };
 
-  public shared(msg) func reset(user: User) : async() {
+  public func reset(user: User) : async() {
     count := 0;
     await notify(user, count);
   };

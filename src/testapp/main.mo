@@ -7,7 +7,7 @@ actor CountToTen {
 
   public type User = Counters.User;
 
-  public shared(msg) func countToTen() : async () {
+  public func countToTen() : async () {
 
     let u : User = #principal(Principal.fromActor(CountToTen));
 
@@ -20,6 +20,7 @@ actor CountToTen {
     };
   };
 
+  // this must be public otherwise there's a runtime error
   public func countChanged(value: Nat) : async() {
      Debug.print("--->>>> " # Nat.toText(value));
   }
