@@ -4,18 +4,9 @@
       "main": "src/test/main.mo",
       "type": "motoko"
     },
-    "test_assets": {
-      "dependencies": [
-        "test"
-      ],
-      "frontend": {
-        "entrypoint": "src/test_assets/src/index.html"
-      },
-      "source": [
-        "src/test_assets/assets",
-        "dist/test_assets/"
-      ],
-      "type": "assets"
+    "testapp": {
+      "main": "src/testapp/main.mo",
+      "type": "motoko"
     }
   },
   "defaults": {
