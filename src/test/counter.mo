@@ -1,20 +1,13 @@
+import CounterTypes "countertypes";
 import Principal "mo:base/Principal";
 import Debug "mo:base/Debug";
 import Nat "mo:base/Nat";
 
 actor class Counter(init : Nat) {
 
- public type AccountIdentifier = Text;
+  public type User = CounterTypes.User;
 
- public type User = {
-    #address : AccountIdentifier; //No notification
-    #principal : Principal; //defaults to sub account 0
-  };
-
-  public type NotifyService = actor 
-     { 
-          countChanged : shared (Nat) -> async()
-     };
+  public type NotifyService = CounterTypes.NotifyService;
 
   var count = init;
 
