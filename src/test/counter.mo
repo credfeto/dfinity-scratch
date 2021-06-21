@@ -41,10 +41,11 @@ actor class Counter(init : Nat) {
       };
 
       case (#principal principal) {
-        let ns : NotifyService = actor(Principal.toText(principal));
-        let r = await ns.countChanged(value);
-
+        
+        await CounterTypes.NotifyPrincipal(principal, value);
       };
     }
   };
+
+
 };
