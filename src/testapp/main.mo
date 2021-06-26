@@ -10,13 +10,11 @@ actor CountToTen {
   public func countToTen() : async () {
 
     let u : User = #principal(Principal.fromActor(CountToTen));
+    let c : Counters.Counter = await Counters.getCounter();
 
-    await Counters.reset(u);
-
-    while ((await Counters.read()) < 10) {
-      Debug.print(Nat.toText(await Counters.read()));
-      await Counters.inc(u);
-      Debug.print("Hello");
+    while ((await c.read()) < 10) {
+      Debug.print(Nat.toText(await c.read()));
+      await c.inc(u);
     };
   };
 
